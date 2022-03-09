@@ -1,0 +1,309 @@
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en-us lang=en-us>
+<head>
+<meta name=generator content="Hugo 0.93.2">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>GoFish</title><link rel="shortcut icon" href=favicon.ico type=image/x-icon>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet>
+<link rel=stylesheet href=/css/styles.css>
+<link href=/index.xml rel=alternate type=application/rss+xml title=GoFish>
+</head><body>
+<div class="sidebar sidebar-">
+<div class=navigation>
+<div>
+Kraiklyn
+</div><h1 class=site-title><a href=/>GoFish</a></h1><nav class=internal>
+<ul>
+<li>
+<a href=#intro>GoFish, the Package Manager 🐠</a>
+<ul>
+<li><a href=#about>About</a></li><li><a href=#install>Install</a></li><li><a href=#faq>FAQ</a></li><li><a href=#troubleshooting>Troubleshooting</a></li><li><a href=#cookbook>Fish Food Cookbook</a></li><li><a href=#hacking>Hacking up GoFish 🍣</a></li><li><a href=#contributing>Contributing to GoFish</a></li><li><a href=#code-of-conduct>Code of Conduct</a></li></ul></li></ul></nav><nav class=external>
+<div class=external-title></div><ul id=shortcuts>
+<li>
+<a href=https://github.com/fishworks/gofi.sh target=_blank rel=noopener>gofi.sh on Github</a>
+</li><li>
+<a href=https://github.com/fishworks/gofish target=_blank rel=noopener>GoFish on Github</a>
+</li></ul></nav></div><div class=version>
+generated on Mar 9, 2022
+</div></div><div class=content>
+<section class=page id=intro>
+<h1>
+<a href=#intro>GoFish, the Package Manager 🐠</a>
+</h1><div class=content>
+<p>GoFish is a cross-platform systems package manager, bringing the ease of use of Homebrew to Linux and Windows.</p><pre tabindex=0><code>$ gofish install go
+==&gt; Installing go...
+🐠  go 1.10.1: installed in 2.307602197s
+</code></pre></div></section><section class=page id=about>
+<h1>
+<a href=#about>About</a>
+</h1><div class=content>
+<p>GoFish works across all three major operating systems (Windows, MacOS, and Linux). It installs packages into its own directory and symlinks their files into <code>/usr/local</code> (or <code>C:\ProgramData</code> for Windows). You can think of it as the cross-platform Homebrew.</p><pre tabindex=0><code>$ cd /usr/local/Fish
+$ find Barrel
+Barrel
+Barrel/helm
+Barrel/helm/2.8.2
+Barrel/helm/2.8.2/darwin-amd64
+Barrel/helm/2.8.2/darwin-amd64/LICENSE
+Barrel/helm/2.8.2/darwin-amd64/README.md
+Barrel/helm/2.8.2/darwin-amd64/helm
+$ ls -l /usr/local/bin | grep helm
+helm -&gt; ../Fish/Barrel/helm/2.8.2/darwin-amd64/helm
+</code></pre><p>GoFish takes the ideas of <a href=https://docs.brew.sh/Formula-Cookbook#homebrew-terminology>Homebrew Formulas</a> to the next level by installing pre-packaged tools. GoFish&rsquo;s fish food are simple Lua scripts:</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#00a8c8>local</span> <span style=color:#111>name</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;helm&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#00a8c8>local</span> <span style=color:#111>version</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;2.8.2&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#111>food</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>name</span> <span style=color:#f92672>=</span> <span style=color:#111>name</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>description</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;The Kubernetes Package Manager&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>homepage</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;https://github.com/kubernetes/helm&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>version</span> <span style=color:#f92672>=</span> <span style=color:#111>version</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>packages</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>os</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;darwin&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>arch</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;amd64&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>url</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>version</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;-darwin-amd64.tar.gz&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>sha256</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;a0a8cf462080b2bc391f38b7cf617618b189cdef9f071c06fa0068c2418cc413&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>resources</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>                    <span style=color:#111>path</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;darwin-amd64/&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>                    <span style=color:#111>installpath</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;bin/&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>                    <span style=color:#111>executable</span> <span style=color:#f92672>=</span> <span style=color:#00a8c8>true</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>},</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>os</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;linux&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>arch</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;amd64&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>url</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>version</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;-linux-amd64.tar.gz&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>sha256</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;614b5ac79de4336b37c9b26d528c6f2b94ee6ccacb94b0f4b8d9583a8dd122d3&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>resources</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>                    <span style=color:#111>path</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;linux-amd64/&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>                    <span style=color:#111>installpath</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;bin/&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>                    <span style=color:#111>executable</span> <span style=color:#f92672>=</span> <span style=color:#00a8c8>true</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>},</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>os</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;windows&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>arch</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;amd64&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>url</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>version</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;-windows-amd64.tar.gz&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>sha256</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;cb6ea5d60f202c752f1f0777e4bebd98c619a2c18e52468df7a302e783216f23&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>resources</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>                    <span style=color:#111>path</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;windows-amd64</span><span style=color:#8045ff>\\</span><span style=color:#d88200>&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;.exe&#34;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>                    <span style=color:#111>installpath</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;bin</span><span style=color:#8045ff>\\</span><span style=color:#d88200>&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;.exe&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>}</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
+</span></span></code></pre></div></div></section><section class=page id=install>
+<h1>
+<a href=#install>Install</a>
+</h1><div class=content>
+<p>MacOS/Linux:</p><pre tabindex=0><code>curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.sh | bash
+</code></pre><p>Windows (Powershell, as Administrator):</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#111>Set-ExecutionPolicy</span> <span style=color:#111>Bypass</span> <span style=color:#111>-Scope</span> <span style=color:#00a8c8>Process</span> <span style=color:#111>-Force</span>
+</span></span><span style=display:flex><span><span style=color:#111>iex </span><span style=color:#111>((</span><span style=color:#111>New-Object</span> <span style=color:#111>System</span><span style=color:#111>.</span><span style=color:#111>Net</span><span style=color:#111>.</span><span style=color:#111>WebClient</span><span style=color:#111>).</span><span style=color:#111>DownloadString</span><span style=color:#111>(</span><span style=color:#d88200>&#39;https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.ps1&#39;</span><span style=color:#111>))</span>
+</span></span></code></pre></div><p>After running one of the install scripts:</p><pre tabindex=0><code>gofish init
+</code></pre><p>Once you have GoFish up and running, you can upgrade at any time using</p><pre tabindex=0><code>gofish install gofish
+</code></pre><p>Then:</p><pre tabindex=0><code>gofish upgrade gofish
+</code></pre><p>Please inspect the install scripts prior to running them to ensure your OS&rsquo;s safety. I trust my own code, but you should verify the security and contents of any script from the internet you are not familiar with.</p></div></section><section class=page id=faq>
+<h1>
+<a href=#faq>FAQ</a>
+</h1><div class=content>
+<h2 id=how-do-i-get-started>How do I get started?</h2><p>After running one of the <a href=#install>install scripts</a>:</p><pre tabindex=0><code>gofish init
+</code></pre><h2 id=how-do-i-update-my-local-packages>How do I update my local packages?</h2><p>First update the rigs:</p><pre tabindex=0><code>gofish update
+</code></pre><p>You can now find out what is outdated with:</p><pre tabindex=0><code>gofish rotten
+</code></pre><p>Upgrade everything with:</p><pre tabindex=0><code>gofish upgrade
+</code></pre><p>Or upgrade a particular fish food with:</p><pre tabindex=0><code>gofish upgrade &lt;food&gt;
+</code></pre><p>For example, to upgrade GoFish:</p><pre tabindex=0><code>gofish upgrade gofish
+</code></pre><h2 id=how-do-i-uninstall-old-versions-of-a-fish-food>How do I uninstall old versions of a fish food?</h2><p>By default, GoFish does not uninstall old versions of fish food, so over time you will accumulate old
+versions. To remove them, simply use:</p><pre tabindex=0><code>gofish cleanup &lt;food&gt;
+</code></pre><p>or clean up everything at once:</p><pre tabindex=0><code>gofish cleanup
+</code></pre><p>or to see what would be cleaned up:</p><pre tabindex=0><code>gofish cleanup -n
+</code></pre><h2 id=where-does-stuff-get-downloaded>Where does stuff get downloaded?</h2><p>GoFish stores downloaded files to either <code>~/Library/Caches/gofish</code> for macOS, <code>~/.gofish</code> for Linux, and
+<code>%APPDATA%/Local/gofish</code> for Windows. See <code>gofish tank</code> to know more about GoFish&rsquo;s environment.</p><h2 id=why-cant-you-support-homebrew-formulas>Why can&rsquo;t you support Homebrew formulas?</h2><p>GoFish aims to work across all three major operating systems. Most Homebrew formulas in core work
+based on compiling a package from source and symlinking the result in other parts of <code>/usr/local</code>.
+Because compiling from source differs vastly between all three operating systems, it didn&rsquo;t feel
+right to provide such a system for the initial release.</p><p>However, certain formulae provide pre-compiled versions known as bottles, which are available at
+<a href=https://bintray.com/homebrew/bottles>https://bintray.com/homebrew/bottles</a>. GoFish can use these pre-compiled bottles to get <em>some</em>
+compatibility with Homebrew.</p><h2 id=i-have-packages-i-installed-with-homebrew-however-i-want-to-use-gofish-instead-how>I have packages I installed with Homebrew, however I want to use GoFish instead. How?</h2><pre tabindex=0><code>brew unlink foo
+gofish install foo
+</code></pre><h2 id=how-can-i-add-something-to-the-faq>How can I add something to the FAQ?</h2><p>Something missing? Feel like <a href=https://github.com/fishworks/gofi.sh>making a contribution?</a></p></div></section><section class=page id=troubleshooting>
+<h1>
+<a href=#troubleshooting>Troubleshooting</a>
+</h1><div class=content>
+<p>If you feel something&rsquo;s missing from the troubleshooting guide, it&rsquo;s a great opportunity to <a href=https://github.com/fishworks/gofi.sh>make a contribution</a>!</p><p>Nothing has been added to the troubleshooting guide yet. Feel like <a href=https://github.com/fishworks/gofi.sh>making a contribution?</a></p></div></section><section class=page id=cookbook>
+<h1>
+<a href=#cookbook>Fish Food Cookbook</a>
+</h1><div class=content>
+<p>Fish food is a package definition written in Lua. It can be created with <code>gofish create &lt;food></code>. Fish
+food use the Lua runtime to provide simple scripting capabilities that other markdown languages
+cannot provide on their own.</p><h2 id=gofish-terminology>GoFish terminology</h2><table>
+<thead>
+<tr>
+<th>Term</th><th>Description</th><th>Example</th></tr></thead><tbody>
+<tr>
+<td>Food</td><td>The package definition</td><td>/usr/local/Fish/Rigs/github.com/fishworks/fish-food</td></tr><tr>
+<td>Rig</td><td>A git repository containing fish food</td><td>/usr/local/Fish/Rigs/github.com/fishworks/fish-food</td></tr><tr>
+<td>Barrel</td><td>All fish food are installed here</td><td>/usr/local/Fish/Barrel</td></tr></tbody></table><h2 id=an-introduction>An introduction</h2><p>GoFish uses git for contributing to the project.</p><p>GoFish installs to the Barrel and then symlinks some of the installation into /usr/local so that other
+programs can see what’s going on. We suggest you use <code>find</code> on a few of the food in your Barrel to
+see how it is all arranged.</p><p>Packages are installed according to their fish food, which are written in Lua and live in <code>/usr/local/Fish/Rigs/github.com/fishworks/fish-food</code>.</p><h2 id=basic-instructions>Basic instructions</h2><p>Make sure you run <code>gofish update</code> before you start. This prepares your Rigs by bumping them to the latest revision.</p><p>Before submitting a new food, make sure your package:</p><ul>
+<li>isn’t already in fish-food</li><li>isn’t already waiting to be merged (check the pull request queue)</li><li>is still supported by upstream</li><li>has a stable, tagged version (i.e. not just a work-in-progress with no versions)</li></ul><p>Before submitting a new food, make sure you read over our <a href=#contributing>contribution guidelines</a>.</p><h2 id=create-the-fish-food>Create the fish food</h2><pre tabindex=0><code>gofish update # make sure we&#39;ve got a fresh checkout of master
+vim $(gofish create foo)
+</code></pre><h2 id=test-the-fish-food>Test the fish food</h2><p>&mldr;By installing it!</p><pre tabindex=0><code>gofish install --log-level 9001 foo
+</code></pre><h2 id=manuals>Manuals</h2><p>GoFish expects to find manual pages in <code>/usr/local/share/man/</code>, not in <code>/usr/local/man/</code>.</p><h2 id=a-quick-word-on-naming>A quick word on naming</h2><p>Name the food like the project markets the product. For example, use <code>pkg-config</code> over <code>pkgconfig</code>,
+and <code>sdl_mixer</code> over <code>sdl-mixer</code> or <code>sdlmixer</code>.</p><h2 id=commit>Commit</h2><p>Everything is built on git, so contribution is easy:</p><pre tabindex=0><code>eval $(gofish tank)
+cd $GOFISH_DEFAULT_RIG
+# Create a new git branch for your food so your pull request is easy to
+# modify if any changes come up during review.
+git checkout -b &lt;some-descriptive-name&gt;
+git add Food/foo.lua
+git commit
+</code></pre><h2 id=fork>Fork</h2><p>Now you just need to push your commit to GitHub.</p><p>If you haven’t forked GoFish yet, go to the fish-food repository and hit the Fork button.</p><p>If you have already forked GoFish on GitHub, then you can manually push (just make sure you have been pulling from the fishworks/fish-food master):</p><p>git push <a href=https://github.com/myname/fish-food/>https://github.com/myname/fish-food/</a> </p><p>Now, open a pull request for your changes.</p><ul>
+<li>One formula per commit; one commit per formula</li><li>Keep merge commits out of the pull request</li></ul></div></section><section class=page id=hacking>
+<h1>
+<a href=#hacking>Hacking up GoFish 🍣</a>
+</h1><div class=content>
+<p>This guide is for developers who want to improve Fish. These instructions will help you set up a
+development environment for working on the GoFish source code.</p><h2 id=prerequisites>Prerequisites</h2><p>To compile and test GoFish, you will need:</p><ul>
+<li><a href=https://git-scm.com/>git</a></li><li><a href=https://golang.org/>Go</a> 1.10 or later</li></ul><p>In most cases, install each prerequisite according to its instructions.</p><h2 id=fork-the-repository>Fork the Repository</h2><p>Begin at Github by forking GoFish, then clone your fork locally. Since GoFish is a Go package, it
+should be located at $GOPATH/src/github.com/fishworks/gofish.</p><pre tabindex=0><code>$ mkdir -p $GOPATH/src/github.com/fishworks
+$ cd $GOPATH/src/github.com/fishworks
+$ git clone git@github.com:&lt;username&gt;/gofish.git
+$ cd gofish
+</code></pre><p>Add the conventional <a href=https://help.github.com/articles/fork-a-repo/>upstream</a> git remote in order
+to fetch changes from GoFish&rsquo;s main master branch and to create pull requests:</p><pre tabindex=0><code>$ git remote add upstream https://github.com/fishworks/gofish.git
+</code></pre><h2 id=make-your-changes>Make your Changes</h2><p>With the prerequisites installed and your fork of GoFish cloned, you can make changes to local GoFish
+source code.</p><p>Run <code>make</code> to build GoFish:</p><pre tabindex=0><code>$ make bootstrap
+$ make
+</code></pre><h2 id=test-your-changes>Test your Changes</h2><p>GoFish includes a suite of tests:</p><ul>
+<li><code>make test-lint</code>: runs linter/style checks</li><li><code>make test-unit</code>: runs basic unit tests</li><li><code>make test</code>: runs all of the above</li></ul></div></section><section class=page id=contributing>
+<h1>
+<a href=#contributing>Contributing to GoFish</a>
+</h1><div class=content>
+<p>GoFish accepts contributions via GitHub pull requests. This document outlines the process to help get your contribution accepted.</p><h2 id=reporting-a-security-issue>Reporting a Security Issue</h2><p>Most of the time, when you find a bug in GoFish, it should be reported using <a href=https://github.com/fishworks/gofish/issues>GitHub issues</a>.
+However, if you are reporting a <em>security vulnerability</em>, please email a report to <a href=mailto:matt.fisher+security-issues@fishworks.io>Matt Fisher</a>
+directly. This will give myself a chance to try to fix the issue before it is exploited in the wild.</p><h2 id=support-channels>Support Channels</h2><p>Whether you are a user or contributor, official support channels include:</p><ul>
+<li>GitHub <a href=https://github.com/fishworks/gofish/issues>issues</a></li><li>IRC - tbd at a later date</li></ul><p>Before opening a new issue or submitting a new pull request, it&rsquo;s helpful to search the project - it&rsquo;s likely that another user has already reported the issue you&rsquo;re facing, or it&rsquo;s a known issue that we&rsquo;re already aware of.</p><h2 id=milestones>Milestones</h2><p>We use milestones to track progress of releases. A milestone (and hence release) is considered done
+when all outstanding issues/PRs have been closed or moved to another milestone.</p><h2 id=semver>Semver</h2><p>GoFish maintains a strong commitment to backward compatibility. All of our changes to protocols and
+formats are backward compatible from GoFish 1.0 until GoFish 2.0. No features, flags, or commands are
+removed or substantially modified (other than bug fixes).</p><p>We also try very hard to not change publicly accessible Go library definitions inside of the <code>pkg/</code>
+directory of our source code, but it is not guaranteed to be backwards compatible as we move the
+project forward.</p><p>If there&rsquo;s some package you rely on inside of GoFish that would be useful to split out and maintain
+separately, <a href=https://github.com/fishworks/gofish/issues/new>open an issue to discuss it!</a></p><p>For a quick summary of our backward compatibility guidelines for releases between 1.0 and 2.0:</p><ul>
+<li>Command line commands, flags, and arguments MUST be backward compatible</li><li>Directory formats within /usr/local/Fish MUST be backward compatible</li><li>Any fish food that worked on a previous version of GoFish MUST work on a new version of GoFish, barring the cases where
+<ul>
+<li>it is out of our control, e.g. the Operating System itself changed, and</li><li>the fish food worked because it exploited a bug</li></ul></li></ul><h2 id=issues>Issues</h2><p>Issues are used as the primary method for tracking anything to do with the GoFish project.</p><h3 id=issue-types>Issue Types</h3><p>There are 4 types of issues (each with their own corresponding <a href=#labels>label</a>):</p><h4 id=questionsupport>Question/Support</h4><p>These are support or functionality inquiries that we want to have a record of for future reference.
+Depending on the discussion, it may require further information from the user before these can turn
+into Feature or Bug issues.</p><h4 id=proposal>Proposal</h4><p>Used for items that propose a new ideas or functionality that require a larger community discussion.
+This allows for feedback from others in the community before a feature is actually developed. This
+is not needed for small additions. Final word on whether or not a featureneeds a proposal is up to
+the core maintainers. All issues that are proposals should both have a label and an issue title of
+&ldquo;Proposal: [the rest of the title].&rdquo; A proposal can become a Feature and does not require a
+milestone.</p><h4 id=feature>Feature</h4><p>These track specific feature requests and ideas until they are complete. They can evolve from a
+Proposal or can be submitted individually depending on the size.</p><h4 id=bug>Bug</h4><p>These track bugs with the code or problems with the documentation (i.e. missing or incomplete)</p><h3 id=issue-lifecycle>Issue Lifecycle</h3><p>The issue lifecycle is mainly driven by the core maintainers, but is good information for those
+contributing to GoFish. All issue types follow the same general lifecycle. Differences are noted below.</p><ol>
+<li>Issue creation</li><li>Triage
+<ul>
+<li>The maintainer in charge of triaging will apply the proper labels for the issue. This
+includes labels for priority, type, and metadata (such as &ldquo;starter&rdquo;). The only issue
+priority we will be tracking is whether or not the issue is &ldquo;critical.&rdquo; If additional
+levels are needed in the future, we will add them.</li><li>(If needed) Clean up the title to succinctly and clearly state the issue. Also ensure
+that proposals are prefaced with &ldquo;Proposal&rdquo;.</li><li>Add the issue to the correct milestone. If any questions come up, don&rsquo;t worry about
+adding the issue to a milestone until the questions are answered.</li><li>We attempt to do this process at least once per work day.</li></ul></li><li>Discussion
+<ul>
+<li>&ldquo;Feature&rdquo; and &ldquo;Bug&rdquo; issues should be connected to the PR that resolves it.</li><li>Whoever is working on a &ldquo;Feature&rdquo; or &ldquo;Bug&rdquo; issue (whether a maintainer or someone from
+the community), should either assign the issue to them self or make a comment in the issue
+saying that they are taking it.</li><li>&ldquo;Proposal&rdquo; and &ldquo;Question&rdquo; issues should stay open until resolved or if they have not been
+active for more than 30 days. This will help keep the issue queue to a manageable size and
+reduce noise. Should the issue need to stay open, the <code>keep open</code> label can be added.</li></ul></li><li>Issue closure</li></ol><h2 id=how-to-contribute-a-patch>How to Contribute a Patch</h2><ol>
+<li>Fork the desired repo, develop and test your code changes.</li><li>Submit a pull request.</li></ol><p>The next section contains more information on the workflow followed for PRs</p><h2 id=pull-requests>Pull Requests</h2><p>Like any good open source project, we use Pull Requests to track code changes.</p><h3 id=pr-lifecycle>PR Lifecycle</h3><ol>
+<li>PR creation
+<ul>
+<li>We more than welcome PRs that are currently in progress. They are a great way to keep track of
+important work that is in-flight, but useful for others to see. If a PR is a work in progress,
+it <strong>must</strong> be prefaced with &ldquo;WIP: [title]&rdquo;. Once the PR is ready for review, remove &ldquo;WIP&rdquo; from
+the title.</li><li>It is preferred, but not required, to have a PR tied to a specific issue.</li></ul></li><li>Triage
+<ul>
+<li>The maintainer in charge of triaging will apply the proper labels for the issue. This should
+include at least a size label, <code>bug</code> or <code>feature</code>, and <code>awaiting review</code> once all labels are applied.
+See the <a href=#labels>Labels section</a> for full details on the definitions of labels</li><li>Add the PR to the correct milestone. This should be the same as the issue the PR closes.</li></ul></li><li>Assigning reviews
+<ul>
+<li>Once a review has the <code>awaiting review</code> label, maintainers will review them as schedule permits.
+The maintainer who takes the issue should self-request a review.</li><li>Reviews from others in the community, especially those who have encountered a bug or have
+requested a feature, are highly encouraged, but not required. Maintainer reviews <strong>are</strong> required
+before any merge</li><li>Any PR with the <code>size/large</code> label requires 2 review approvals from maintainers before it can be
+merged. Those with <code>size/medium</code> are per the judgement of the maintainers</li></ul></li><li>Reviewing/Discussion
+<ul>
+<li>All reviews will be completed using Github review tool.</li><li>A &ldquo;Comment&rdquo; review should be used when there are questions about the code that should be
+answered, but that don&rsquo;t involve code changes. This type of review does not count as approval.</li><li>A &ldquo;Changes Requested&rdquo; review indicates that changes to the code need to be made before they will be merged.</li></ul></li><li>Address comments by answering questions or changing code</li><li>Merge or close
+<ul>
+<li>PRs should stay open until merged or if they have not been active for more than 30 days.
+This will help keep the PR queue to a manageable size and reduce noise. Should the PR need
+to stay open (like in the case of a WIP), the <code>keep open</code> label can be added.</li><li>If the owner of the PR is listed in <code>OWNERS</code>, that user <strong>must</strong> merge their own PRs
+or explicitly request another OWNER do that for them.</li><li>If the owner of a PR is <em>not</em> listed in <code>OWNERS</code>, any core committer may
+merge the PR once it is approved.</li></ul></li></ol><h4 id=a-note-about-documentation-prs>A note about Documentation PRs</h4><p>Documentation PRs will follow the same lifecycle as other PRs. They will also be labeled with the
+<code>docs</code> label. For documentation, special attention will be paid to spelling, grammar, and clarity
+(whereas those things don&rsquo;t matter <em>as</em> much for comments in code).</p><h2 id=labels>Labels</h2><p>The following tables define all label types used for GoFish. It is split up by category.</p><h3 id=common>Common</h3><table>
+<thead>
+<tr>
+<th>Label</th><th>Description</th></tr></thead><tbody>
+<tr>
+<td><code>bug</code></td><td>Marks an issue as a bug or a PR as a bugfix</td></tr><tr>
+<td><code>critical</code></td><td>Marks an issue or PR as critical. This means that addressing the PR or issue is top priority and will be handled first by maintainers</td></tr><tr>
+<td><code>docs</code></td><td>Indicates the issue or PR is a documentation change</td></tr><tr>
+<td><code>duplicate</code></td><td>Indicates that the issue or PR is a duplicate of another</td></tr><tr>
+<td><code>feature</code></td><td>Marks the issue as a feature request or a PR as a feature implementation</td></tr><tr>
+<td><code>keep open</code></td><td>Denotes that the issue or PR should be kept open past 30 days of inactivity</td></tr><tr>
+<td><code>refactor</code></td><td>Indicates that the issue is a code refactor and is not fixing a bug or adding additional functionality</td></tr></tbody></table><h3 id=issue-specific>Issue Specific</h3><table>
+<thead>
+<tr>
+<th>Label</th><th>Description</th></tr></thead><tbody>
+<tr>
+<td><code>help wanted</code></td><td>This issue is one the core maintainers would appreciate help with</td></tr><tr>
+<td><code>proposal</code></td><td>This issue is a proposal</td></tr><tr>
+<td><code>question/support</code></td><td>This issue is a support request or question</td></tr><tr>
+<td><code>good first issue</code></td><td>This issue is a good for someone new to contributing to GoFish</td></tr><tr>
+<td><code>wontfix</code></td><td>The issue has been discussed and will not be accepted</td></tr></tbody></table><h3 id=release-specific>Release Specific</h3><table>
+<thead>
+<tr>
+<th>Label</th><th>Description</th></tr></thead><tbody>
+<tr>
+<td><code>needs pick</code></td><td>Indicates that the PR needs to be picked into a feature branch (generally bugfix branches). Once it has been, the <code>picked</code> label should be applied and this one removed</td></tr><tr>
+<td><code>picked</code></td><td>This PR has been picked into a feature branch</td></tr></tbody></table></div></section><section class=page id=code-of-conduct>
+<h1>
+<a href=#code-of-conduct>Code of Conduct</a>
+</h1><div class=content>
+<p>In the interest of fostering an open and welcoming environment, we as
+contributors and maintainers pledge to making participation in our project and
+our community a harassment-free experience for everyone, regardless of age, body
+size, disability, ethnicity, gender identity and expression, level of experience,
+education, socio-economic status, nationality, personal appearance, race,
+religion, or sexual identity and orientation.</p><h2 id=our-standards>Our Standards</h2><p>Examples of behavior that contributes to creating a positive environment
+include:</p><ul>
+<li>Using welcoming and inclusive language</li><li>Being respectful of differing viewpoints and experiences</li><li>Gracefully accepting constructive criticism</li><li>Focusing on what is best for the community</li><li>Showing empathy towards other community members</li></ul><p>Examples of unacceptable behavior by participants include:</p><ul>
+<li>The use of sexualized language or imagery and unwelcome sexual attention or
+advances</li><li>Trolling, insulting/derogatory comments, and personal or political attacks</li><li>Public or private harassment</li><li>Publishing others&rsquo; private information, such as a physical or electronic
+address, without explicit permission</li><li>Other conduct which could reasonably be considered inappropriate in a
+professional setting</li></ul><h2 id=our-responsibilities>Our Responsibilities</h2><p>Project maintainers are responsible for clarifying the standards of acceptable
+behavior and are expected to take appropriate and fair corrective action in
+response to any instances of unacceptable behavior.</p><p>Project maintainers have the right and responsibility to remove, edit, or
+reject comments, commits, code, wiki edits, issues, and other contributions
+that are not aligned to this Code of Conduct, or to ban temporarily or
+permanently any contributor for other behaviors that they deem inappropriate,
+threatening, offensive, or harmful.</p><h2 id=scope>Scope</h2><p>This Code of Conduct applies both within project spaces and in public spaces
+when an individual is representing the project or its community. Examples of
+representing a project or community include using an official project e-mail
+address, posting via an official social media account, or acting as an appointed
+representative at an online or offline event. Representation of a project may be
+further defined and clarified by project maintainers.</p><h2 id=enforcement>Enforcement</h2><p>Instances of abusive, harassing, or otherwise unacceptable behavior may be
+reported by <a href=mailto:matt.fisher+code-of-conduct@fishworks.io>contacting the project team</a>.
+All complaints will be reviewed and investigated and will result in a response
+that is deemed necessary and appropriate to the circumstances. The project team
+is obligated to maintain confidentiality with regard to the reporter of an
+incident. Further details of specific enforcement policies may be posted
+separately.</p><p>Project maintainers who do not follow or enforce the Code of Conduct in good
+faith may face temporary or permanent repercussions as determined by other
+members of the project&rsquo;s leadership.</p><h2 id=attribution>Attribution</h2><p>This Code of Conduct is adapted from the <a href=https://www.contributor-covenant.org>Contributor Covenant</a>, version 1.4,
+available at <a href=https://www.contributor-covenant.org/version/1/4/code-of-conduct.html>https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</a></p></div></section></div></body></html>

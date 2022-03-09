@@ -1,17 +1,30 @@
-name: Upload To Azure Blob Storage
+name: Generate website
 on:
   push:
     branches:
-      - master
+      - main
+
 jobs:
-  upload:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@master
-      - uses: chabad360/hugo-actions@master
-      - uses: bacongobbler/azure-blob-storage-upload@main
+      - uses: actions/checkout@v2
         with:
-          source_dir: 'public'
-          container_name: '$web'
-          connection_string: ${{ secrets.AzureBlobStorageConnectionString }}
-          sync: false
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          # extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

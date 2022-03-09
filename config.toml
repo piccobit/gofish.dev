@@ -9,10 +9,10 @@ pygmentsStyle = "monokailight"
 
 [[menu.shortcuts]]
 name = "GoFish on Github"
-url = "https://github.com/fishworks/gofish"
+url = "https://github.com/piccobit/gofish"
 weight = 10
 
 [[menu.shortcuts]]
 name = "gofi.sh on Github"
-url = "https://github.com/fishworks/gofi.sh"
+url = "https://github.com/piccobit/gofish.dev"
 weight = 10

@@ -7,7 +7,7 @@ weight: 12
 
 MacOS/Linux:
 
-```
+```bash
 curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.sh | bash
 ```
 

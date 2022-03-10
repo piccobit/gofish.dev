@@ -2,10 +2,24 @@ baseURL = "/gofish.dev/"
 languageCode = "en-us"
 
 title = "GoFish"
+externalTitle = "GoFish"
 subtitle = "Keep your fish fresh!"
 theme = "kraiklyn"
-pygmentsCodeFences = true
-pygmentsStyle = "monokailight"
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'monokai'
+    tabWidth = 4
 
 [[menu.shortcuts]]
 name = "GoFish on Github"
@@ -13,6 +27,6 @@ url = "https://github.com/piccobit/gofish"
 weight = 10
 
 [[menu.shortcuts]]
-name = "gofi.sh on Github"
+name = "gofish.dev on Github"
 url = "https://github.com/piccobit/gofish.dev"
-weight = 10
+weight = 20

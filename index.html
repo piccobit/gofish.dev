@@ -11,7 +11,6 @@
 <div class="sidebar sidebar-">
 <div class=navigation>
 <div>
-Kraiklyn
 </div><h1 class=site-title><a href=/gofish.dev/>GoFish</a></h1><nav class=internal>
 <ul>
 <li>
@@ -20,11 +19,11 @@ Kraiklyn
 <li><a href=#about>About</a></li><li><a href=#install>Install</a></li><li><a href=#faq>FAQ</a></li><li><a href=#troubleshooting>Troubleshooting</a></li><li><a href=#cookbook>Fish Food Cookbook</a></li><li><a href=#hacking>Hacking up GoFish 🍣</a></li><li><a href=#contributing>Contributing to GoFish</a></li><li><a href=#code-of-conduct>Code of Conduct</a></li></ul></li></ul></nav><nav class=external>
 <div class=external-title></div><ul id=shortcuts>
 <li>
-<a href=https://github.com/piccobit/gofish.dev target=_blank rel=noopener>gofi.sh on Github</a>
-</li><li>
 <a href=https://github.com/piccobit/gofish target=_blank rel=noopener>GoFish on Github</a>
+</li><li>
+<a href=https://github.com/piccobit/gofish.dev target=_blank rel=noopener>gofish.dev on Github</a>
 </li></ul></nav></div><div class=version>
-generated on Mar 9, 2022
+generated on Mar 10, 2022
 </div></div><div class=content>
 <section class=page id=intro>
 <h1>
@@ -48,62 +47,62 @@ Barrel/helm/2.8.2/darwin-amd64/README.md
 Barrel/helm/2.8.2/darwin-amd64/helm
 $ ls -l /usr/local/bin | grep helm
 helm -&gt; ../Fish/Barrel/helm/2.8.2/darwin-amd64/helm
-</code></pre><p>GoFish takes the ideas of <a href=https://docs.brew.sh/Formula-Cookbook#homebrew-terminology>Homebrew Formulas</a> to the next level by installing pre-packaged tools. GoFish&rsquo;s fish food are simple Lua scripts:</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#00a8c8>local</span> <span style=color:#111>name</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;helm&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#00a8c8>local</span> <span style=color:#111>version</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;2.8.2&#34;</span>
+</code></pre><p>GoFish takes the ideas of <a href=https://docs.brew.sh/Formula-Cookbook#homebrew-terminology>Homebrew Formulas</a> to the next level by installing pre-packaged tools. GoFish&rsquo;s fish food are simple Lua scripts:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#66d9ef>local</span> name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;helm&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>local</span> version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;2.8.2&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#111>food</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>    <span style=color:#111>name</span> <span style=color:#f92672>=</span> <span style=color:#111>name</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>    <span style=color:#111>description</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;The Kubernetes Package Manager&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>    <span style=color:#111>homepage</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;https://github.com/kubernetes/helm&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>    <span style=color:#111>version</span> <span style=color:#f92672>=</span> <span style=color:#111>version</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>    <span style=color:#111>packages</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>        <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>os</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;darwin&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>arch</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;amd64&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>url</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>version</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;-darwin-amd64.tar.gz&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>sha256</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;a0a8cf462080b2bc391f38b7cf617618b189cdef9f071c06fa0068c2418cc413&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>resources</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>                <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>                    <span style=color:#111>path</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;darwin-amd64/&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>                    <span style=color:#111>installpath</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;bin/&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>                    <span style=color:#111>executable</span> <span style=color:#f92672>=</span> <span style=color:#00a8c8>true</span>
-</span></span><span style=display:flex><span>                <span style=color:#111>}</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>}</span>
-</span></span><span style=display:flex><span>        <span style=color:#111>},</span>
-</span></span><span style=display:flex><span>        <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>os</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;linux&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>arch</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;amd64&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>url</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>version</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;-linux-amd64.tar.gz&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>sha256</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;614b5ac79de4336b37c9b26d528c6f2b94ee6ccacb94b0f4b8d9583a8dd122d3&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>resources</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>                <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>                    <span style=color:#111>path</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;linux-amd64/&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>                    <span style=color:#111>installpath</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;bin/&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>                    <span style=color:#111>executable</span> <span style=color:#f92672>=</span> <span style=color:#00a8c8>true</span>
-</span></span><span style=display:flex><span>                <span style=color:#111>}</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>}</span>
-</span></span><span style=display:flex><span>        <span style=color:#111>},</span>
-</span></span><span style=display:flex><span>        <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>os</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;windows&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>arch</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;amd64&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>url</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>version</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;-windows-amd64.tar.gz&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>sha256</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;cb6ea5d60f202c752f1f0777e4bebd98c619a2c18e52468df7a302e783216f23&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>resources</span> <span style=color:#f92672>=</span> <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>                <span style=color:#111>{</span>
-</span></span><span style=display:flex><span>                    <span style=color:#111>path</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;windows-amd64</span><span style=color:#8045ff>\\</span><span style=color:#d88200>&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;.exe&#34;</span><span style=color:#111>,</span>
-</span></span><span style=display:flex><span>                    <span style=color:#111>installpath</span> <span style=color:#f92672>=</span> <span style=color:#d88200>&#34;bin</span><span style=color:#8045ff>\\</span><span style=color:#d88200>&#34;</span> <span style=color:#f92672>..</span> <span style=color:#111>name</span> <span style=color:#f92672>..</span> <span style=color:#d88200>&#34;.exe&#34;</span>
-</span></span><span style=display:flex><span>                <span style=color:#111>}</span>
-</span></span><span style=display:flex><span>            <span style=color:#111>}</span>
-</span></span><span style=display:flex><span>        <span style=color:#111>}</span>
-</span></span><span style=display:flex><span>    <span style=color:#111>}</span>
-</span></span><span style=display:flex><span><span style=color:#111>}</span>
+</span></span><span style=display:flex><span>food <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> name,
+</span></span><span style=display:flex><span>    description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;The Kubernetes Package Manager&#34;</span>,
+</span></span><span style=display:flex><span>    homepage <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://github.com/kubernetes/helm&#34;</span>,
+</span></span><span style=display:flex><span>    version <span style=color:#f92672>=</span> version,
+</span></span><span style=display:flex><span>    packages <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            os <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;darwin&#34;</span>,
+</span></span><span style=display:flex><span>            arch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;amd64&#34;</span>,
+</span></span><span style=display:flex><span>            url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> version <span style=color:#f92672>..</span> <span style=color:#e6db74>&#34;-darwin-amd64.tar.gz&#34;</span>,
+</span></span><span style=display:flex><span>            sha256 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;a0a8cf462080b2bc391f38b7cf617618b189cdef9f071c06fa0068c2418cc413&#34;</span>,
+</span></span><span style=display:flex><span>            resources <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;darwin-amd64/&#34;</span> <span style=color:#f92672>..</span> name,
+</span></span><span style=display:flex><span>                    installpath <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;bin/&#34;</span> <span style=color:#f92672>..</span> name,
+</span></span><span style=display:flex><span>                    executable <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            os <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;linux&#34;</span>,
+</span></span><span style=display:flex><span>            arch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;amd64&#34;</span>,
+</span></span><span style=display:flex><span>            url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> version <span style=color:#f92672>..</span> <span style=color:#e6db74>&#34;-linux-amd64.tar.gz&#34;</span>,
+</span></span><span style=display:flex><span>            sha256 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;614b5ac79de4336b37c9b26d528c6f2b94ee6ccacb94b0f4b8d9583a8dd122d3&#34;</span>,
+</span></span><span style=display:flex><span>            resources <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;linux-amd64/&#34;</span> <span style=color:#f92672>..</span> name,
+</span></span><span style=display:flex><span>                    installpath <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;bin/&#34;</span> <span style=color:#f92672>..</span> name,
+</span></span><span style=display:flex><span>                    executable <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            os <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;windows&#34;</span>,
+</span></span><span style=display:flex><span>            arch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;amd64&#34;</span>,
+</span></span><span style=display:flex><span>            url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://storage.googleapis.com/kubernetes-helm/helm-v&#34;</span> <span style=color:#f92672>..</span> version <span style=color:#f92672>..</span> <span style=color:#e6db74>&#34;-windows-amd64.tar.gz&#34;</span>,
+</span></span><span style=display:flex><span>            sha256 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;cb6ea5d60f202c752f1f0777e4bebd98c619a2c18e52468df7a302e783216f23&#34;</span>,
+</span></span><span style=display:flex><span>            resources <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;windows-amd64</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>..</span> name <span style=color:#f92672>..</span> <span style=color:#e6db74>&#34;.exe&#34;</span>,
+</span></span><span style=display:flex><span>                    installpath <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;bin</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>..</span> name <span style=color:#f92672>..</span> <span style=color:#e6db74>&#34;.exe&#34;</span>
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
 </span></span></code></pre></div></div></section><section class=page id=install>
 <h1>
 <a href=#install>Install</a>
 </h1><div class=content>
-<p>MacOS/Linux:</p><pre tabindex=0><code>curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.sh | bash
-</code></pre><p>Windows (Powershell, as Administrator):</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#111>Set-ExecutionPolicy</span> <span style=color:#111>Bypass</span> <span style=color:#111>-Scope</span> <span style=color:#00a8c8>Process</span> <span style=color:#111>-Force</span>
-</span></span><span style=display:flex><span><span style=color:#111>iex </span><span style=color:#111>((</span><span style=color:#111>New-Object</span> <span style=color:#111>System</span><span style=color:#111>.</span><span style=color:#111>Net</span><span style=color:#111>.</span><span style=color:#111>WebClient</span><span style=color:#111>).</span><span style=color:#111>DownloadString</span><span style=color:#111>(</span><span style=color:#d88200>&#39;https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.ps1&#39;</span><span style=color:#111>))</span>
+<p>MacOS/Linux:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.sh | bash
+</span></span></code></pre></div><p>Windows (Powershell, as Administrator):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>Set-ExecutionPolicy Bypass -Scope <span style=color:#66d9ef>Process</span> -Force
+</span></span><span style=display:flex><span>iex ((New-Object System.Net.WebClient).DownloadString(<span style=color:#e6db74>&#39;https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.ps1&#39;</span>))
 </span></span></code></pre></div><p>After running one of the install scripts:</p><pre tabindex=0><code>gofish init
 </code></pre><p>Once you have GoFish up and running, you can upgrade at any time using</p><pre tabindex=0><code>gofish install gofish
 </code></pre><p>Then:</p><pre tabindex=0><code>gofish upgrade gofish

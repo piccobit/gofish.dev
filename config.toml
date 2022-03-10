@@ -1,4 +1,4 @@
-baseURL = "/gofish.dev/"
+baseURL = "https://gofish.dev/"
 languageCode = "en-us"
 
 title = "GoFish"

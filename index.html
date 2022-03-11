@@ -19,35 +19,35 @@
 <li><a href=#about>About</a></li><li><a href=#install>Install</a></li><li><a href=#faq>FAQ</a></li><li><a href=#troubleshooting>Troubleshooting</a></li><li><a href=#cookbook>Fish Food Cookbook</a></li><li><a href=#hacking>Hacking up GoFish 🍣</a></li><li><a href=#contributing>Contributing to GoFish</a></li><li><a href=#code-of-conduct>Code of Conduct</a></li></ul></li></ul></nav><nav class=external>
 <div class=external-title></div><ul id=shortcuts>
 <li>
-<a href=https://github.com/piccobit/gofish target=_blank rel=noopener>GoFish on Github</a>
+<a href=https://github.com/tinned-fish/gofish target=_blank rel=noopener>GoFish on Github</a>
 </li><li>
-<a href=https://github.com/piccobit/gofish.dev target=_blank rel=noopener>gofish.dev on Github</a>
+<a href=https://github.com/tinned-fish/gofish.dev target=_blank rel=noopener>gofish.dev on Github</a>
 </li></ul></nav></div><div class=version>
-generated on Mar 10, 2022
+generated on Mar 11, 2022
 </div></div><div class=content>
 <section class=page id=intro>
 <h1>
 <a href=#intro>GoFish, the Package Manager 🐠</a>
 </h1><div class=content>
-<p>GoFish is a cross-platform systems package manager, bringing the ease of use of Homebrew to Linux and Windows.</p><pre tabindex=0><code>$ gofish install go
-==&gt; Installing go...
-🐠  go 1.10.1: installed in 2.307602197s
-</code></pre></div></section><section class=page id=about>
+<p>GoFish is a cross-platform systems package manager, bringing the ease of use of Homebrew to Linux and Windows.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ gofish install go
+</span></span><span style=display:flex><span><span style=color:#f92672>==</span>&gt; Installing go...
+</span></span><span style=display:flex><span>🐠  go 1.10.1: installed in 2.307602197s
+</span></span></code></pre></div></div></section><section class=page id=about>
 <h1>
 <a href=#about>About</a>
 </h1><div class=content>
-<p>GoFish works across all three major operating systems (Windows, MacOS, and Linux). It installs packages into its own directory and symlinks their files into <code>/usr/local</code> (or <code>C:\ProgramData</code> for Windows). You can think of it as the cross-platform Homebrew.</p><pre tabindex=0><code>$ cd /usr/local/Fish
-$ find Barrel
-Barrel
-Barrel/helm
-Barrel/helm/2.8.2
-Barrel/helm/2.8.2/darwin-amd64
-Barrel/helm/2.8.2/darwin-amd64/LICENSE
-Barrel/helm/2.8.2/darwin-amd64/README.md
-Barrel/helm/2.8.2/darwin-amd64/helm
-$ ls -l /usr/local/bin | grep helm
-helm -&gt; ../Fish/Barrel/helm/2.8.2/darwin-amd64/helm
-</code></pre><p>GoFish takes the ideas of <a href=https://docs.brew.sh/Formula-Cookbook#homebrew-terminology>Homebrew Formulas</a> to the next level by installing pre-packaged tools. GoFish&rsquo;s fish food are simple Lua scripts:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#66d9ef>local</span> name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;helm&#34;</span>
+<p>GoFish works across all three major operating systems (Windows, MacOS, and Linux). It installs packages into its own directory and symlinks their files into <code>/usr/local</code> (or <code>C:\ProgramData</code> for Windows). You can think of it as the cross-platform Homebrew.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cd /usr/local/Fish
+</span></span><span style=display:flex><span>$ find Barrel
+</span></span><span style=display:flex><span>Barrel
+</span></span><span style=display:flex><span>Barrel/helm
+</span></span><span style=display:flex><span>Barrel/helm/2.8.2
+</span></span><span style=display:flex><span>Barrel/helm/2.8.2/darwin-amd64
+</span></span><span style=display:flex><span>Barrel/helm/2.8.2/darwin-amd64/LICENSE
+</span></span><span style=display:flex><span>Barrel/helm/2.8.2/darwin-amd64/README.md
+</span></span><span style=display:flex><span>Barrel/helm/2.8.2/darwin-amd64/helm
+</span></span><span style=display:flex><span>$ ls -l /usr/local/bin | grep helm
+</span></span><span style=display:flex><span>helm -&gt; ../Fish/Barrel/helm/2.8.2/darwin-amd64/helm
+</span></span></code></pre></div><p>GoFish takes the ideas of <a href=https://docs.brew.sh/Formula-Cookbook#homebrew-terminology>Homebrew Formulas</a> to the next level by installing pre-packaged tools. GoFish&rsquo;s fish food are simple Lua scripts:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#66d9ef>local</span> name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;helm&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>local</span> version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;2.8.2&#34;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>food <span style=color:#f92672>=</span> {
@@ -100,35 +100,35 @@ helm -&gt; ../Fish/Barrel/helm/2.8.2/darwin-amd64/helm
 <h1>
 <a href=#install>Install</a>
 </h1><div class=content>
-<p>MacOS/Linux:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.sh | bash
+<p>MacOS/Linux:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -fsSL https://raw.githubusercontent.com/tinned-fish/gofish/main/scripts/install.sh | bash
 </span></span></code></pre></div><p>Windows (Powershell, as Administrator):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>Set-ExecutionPolicy Bypass -Scope <span style=color:#66d9ef>Process</span> -Force
-</span></span><span style=display:flex><span>iex ((New-Object System.Net.WebClient).DownloadString(<span style=color:#e6db74>&#39;https://raw.githubusercontent.com/fishworks/gofish/main/scripts/install.ps1&#39;</span>))
-</span></span></code></pre></div><p>After running one of the install scripts:</p><pre tabindex=0><code>gofish init
-</code></pre><p>Once you have GoFish up and running, you can upgrade at any time using</p><pre tabindex=0><code>gofish install gofish
-</code></pre><p>Then:</p><pre tabindex=0><code>gofish upgrade gofish
-</code></pre><p>Please inspect the install scripts prior to running them to ensure your OS&rsquo;s safety. I trust my own code, but you should verify the security and contents of any script from the internet you are not familiar with.</p></div></section><section class=page id=faq>
+</span></span><span style=display:flex><span>iex ((New-Object System.Net.WebClient).DownloadString(<span style=color:#e6db74>&#39;https://raw.githubusercontent.com/tinned-fish/gofish/main/scripts/install.ps1&#39;</span>))
+</span></span></code></pre></div><p>After running one of the install scripts:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish init
+</span></span></code></pre></div><p>Once you have GoFish up and running, you can upgrade at any time using</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish install gofish
+</span></span></code></pre></div><p>Then:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish upgrade gofish
+</span></span></code></pre></div><p>Please inspect the install scripts prior to running them to ensure your OS&rsquo;s safety. I trust my own code, but you should verify the security and contents of any script from the internet you are not familiar with.</p></div></section><section class=page id=faq>
 <h1>
 <a href=#faq>FAQ</a>
 </h1><div class=content>
-<h2 id=how-do-i-get-started>How do I get started?</h2><p>After running one of the <a href=#install>install scripts</a>:</p><pre tabindex=0><code>gofish init
-</code></pre><h2 id=how-do-i-update-my-local-packages>How do I update my local packages?</h2><p>First update the rigs:</p><pre tabindex=0><code>gofish update
-</code></pre><p>You can now find out what is outdated with:</p><pre tabindex=0><code>gofish rotten
-</code></pre><p>Upgrade everything with:</p><pre tabindex=0><code>gofish upgrade
-</code></pre><p>Or upgrade a particular fish food with:</p><pre tabindex=0><code>gofish upgrade &lt;food&gt;
-</code></pre><p>For example, to upgrade GoFish:</p><pre tabindex=0><code>gofish upgrade gofish
-</code></pre><h2 id=how-do-i-uninstall-old-versions-of-a-fish-food>How do I uninstall old versions of a fish food?</h2><p>By default, GoFish does not uninstall old versions of fish food, so over time you will accumulate old
-versions. To remove them, simply use:</p><pre tabindex=0><code>gofish cleanup &lt;food&gt;
-</code></pre><p>or clean up everything at once:</p><pre tabindex=0><code>gofish cleanup
-</code></pre><p>or to see what would be cleaned up:</p><pre tabindex=0><code>gofish cleanup -n
-</code></pre><h2 id=where-does-stuff-get-downloaded>Where does stuff get downloaded?</h2><p>GoFish stores downloaded files to either <code>~/Library/Caches/gofish</code> for macOS, <code>~/.gofish</code> for Linux, and
+<h2 id=how-do-i-get-started>How do I get started?</h2><p>After running one of the <a href=#install>install scripts</a>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish init
+</span></span></code></pre></div><h2 id=how-do-i-update-my-local-packages>How do I update my local packages?</h2><p>First update the rigs:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish update
+</span></span></code></pre></div><p>You can now find out what is outdated with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish rotten
+</span></span></code></pre></div><p>Upgrade everything with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish upgrade
+</span></span></code></pre></div><p>Or upgrade a particular fish food with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish upgrade &lt;food&gt;
+</span></span></code></pre></div><p>For example, to upgrade GoFish:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish upgrade gofish
+</span></span></code></pre></div><h2 id=how-do-i-uninstall-old-versions-of-a-fish-food>How do I uninstall old versions of a fish food?</h2><p>By default, GoFish does not uninstall old versions of fish food, so over time you will accumulate old
+versions. To remove them, simply use:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish cleanup &lt;food&gt;
+</span></span></code></pre></div><p>or clean up everything at once:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish cleanup
+</span></span></code></pre></div><p>or to see what would be cleaned up:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish cleanup -n
+</span></span></code></pre></div><h2 id=where-does-stuff-get-downloaded>Where does stuff get downloaded?</h2><p>GoFish stores downloaded files to either <code>~/Library/Caches/gofish</code> for macOS, <code>~/.gofish</code> for Linux, and
 <code>%APPDATA%/Local/gofish</code> for Windows. See <code>gofish tank</code> to know more about GoFish&rsquo;s environment.</p><h2 id=why-cant-you-support-homebrew-formulas>Why can&rsquo;t you support Homebrew formulas?</h2><p>GoFish aims to work across all three major operating systems. Most Homebrew formulas in core work
 based on compiling a package from source and symlinking the result in other parts of <code>/usr/local</code>.
 Because compiling from source differs vastly between all three operating systems, it didn&rsquo;t feel
 right to provide such a system for the initial release.</p><p>However, certain formulae provide pre-compiled versions known as bottles, which are available at
 <a href=https://bintray.com/homebrew/bottles>https://bintray.com/homebrew/bottles</a>. GoFish can use these pre-compiled bottles to get <em>some</em>
-compatibility with Homebrew.</p><h2 id=i-have-packages-i-installed-with-homebrew-however-i-want-to-use-gofish-instead-how>I have packages I installed with Homebrew, however I want to use GoFish instead. How?</h2><pre tabindex=0><code>brew unlink foo
-gofish install foo
-</code></pre><h2 id=how-can-i-add-something-to-the-faq>How can I add something to the FAQ?</h2><p>Something missing? Feel like <a href=https://github.com/fishworks/gofi.sh>making a contribution?</a></p></div></section><section class=page id=troubleshooting>
+compatibility with Homebrew.</p><h2 id=i-have-packages-i-installed-with-homebrew-however-i-want-to-use-gofish-instead-how>I have packages I installed with Homebrew, however I want to use GoFish instead. How?</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>brew unlink foo
+</span></span><span style=display:flex><span>gofish install foo
+</span></span></code></pre></div><h2 id=how-can-i-add-something-to-the-faq>How can I add something to the FAQ?</h2><p>Something missing? Feel like <a href=https://github.com/tinned-fish/gofi.sh>making a contribution?</a></p></div></section><section class=page id=troubleshooting>
 <h1>
 <a href=#troubleshooting>Troubleshooting</a>
 </h1><div class=content>
@@ -143,23 +143,23 @@ cannot provide on their own.</p><h2 id=gofish-terminology>GoFish terminology</h2
 <tr>
 <th>Term</th><th>Description</th><th>Example</th></tr></thead><tbody>
 <tr>
-<td>Food</td><td>The package definition</td><td>/usr/local/Fish/Rigs/github.com/fishworks/fish-food</td></tr><tr>
-<td>Rig</td><td>A git repository containing fish food</td><td>/usr/local/Fish/Rigs/github.com/fishworks/fish-food</td></tr><tr>
+<td>Food</td><td>The package definition</td><td>/usr/local/Fish/Rigs/github.com/tinned-fish/fish-food</td></tr><tr>
+<td>Rig</td><td>A git repository containing fish food</td><td>/usr/local/Fish/Rigs/github.com/tinned-fish/fish-food</td></tr><tr>
 <td>Barrel</td><td>All fish food are installed here</td><td>/usr/local/Fish/Barrel</td></tr></tbody></table><h2 id=an-introduction>An introduction</h2><p>GoFish uses git for contributing to the project.</p><p>GoFish installs to the Barrel and then symlinks some of the installation into /usr/local so that other
 programs can see what’s going on. We suggest you use <code>find</code> on a few of the food in your Barrel to
-see how it is all arranged.</p><p>Packages are installed according to their fish food, which are written in Lua and live in <code>/usr/local/Fish/Rigs/github.com/fishworks/fish-food</code>.</p><h2 id=basic-instructions>Basic instructions</h2><p>Make sure you run <code>gofish update</code> before you start. This prepares your Rigs by bumping them to the latest revision.</p><p>Before submitting a new food, make sure your package:</p><ul>
-<li>isn’t already in fish-food</li><li>isn’t already waiting to be merged (check the pull request queue)</li><li>is still supported by upstream</li><li>has a stable, tagged version (i.e. not just a work-in-progress with no versions)</li></ul><p>Before submitting a new food, make sure you read over our <a href=#contributing>contribution guidelines</a>.</p><h2 id=create-the-fish-food>Create the fish food</h2><pre tabindex=0><code>gofish update # make sure we&#39;ve got a fresh checkout of master
-vim $(gofish create foo)
-</code></pre><h2 id=test-the-fish-food>Test the fish food</h2><p>&mldr;By installing it!</p><pre tabindex=0><code>gofish install --log-level 9001 foo
-</code></pre><h2 id=manuals>Manuals</h2><p>GoFish expects to find manual pages in <code>/usr/local/share/man/</code>, not in <code>/usr/local/man/</code>.</p><h2 id=a-quick-word-on-naming>A quick word on naming</h2><p>Name the food like the project markets the product. For example, use <code>pkg-config</code> over <code>pkgconfig</code>,
-and <code>sdl_mixer</code> over <code>sdl-mixer</code> or <code>sdlmixer</code>.</p><h2 id=commit>Commit</h2><p>Everything is built on git, so contribution is easy:</p><pre tabindex=0><code>eval $(gofish tank)
-cd $GOFISH_DEFAULT_RIG
-# Create a new git branch for your food so your pull request is easy to
-# modify if any changes come up during review.
-git checkout -b &lt;some-descriptive-name&gt;
-git add Food/foo.lua
-git commit
-</code></pre><h2 id=fork>Fork</h2><p>Now you just need to push your commit to GitHub.</p><p>If you haven’t forked GoFish yet, go to the fish-food repository and hit the Fork button.</p><p>If you have already forked GoFish on GitHub, then you can manually push (just make sure you have been pulling from the fishworks/fish-food master):</p><p>git push <a href=https://github.com/myname/fish-food/>https://github.com/myname/fish-food/</a> </p><p>Now, open a pull request for your changes.</p><ul>
+see how it is all arranged.</p><p>Packages are installed according to their fish food, which are written in Lua and live in <code>/usr/local/Fish/Rigs/github.com/tinned-fish/fish-food</code>.</p><h2 id=basic-instructions>Basic instructions</h2><p>Make sure you run <code>gofish update</code> before you start. This prepares your Rigs by bumping them to the latest revision.</p><p>Before submitting a new food, make sure your package:</p><ul>
+<li>isn’t already in fish-food</li><li>isn’t already waiting to be merged (check the pull request queue)</li><li>is still supported by upstream</li><li>has a stable, tagged version (i.e. not just a work-in-progress with no versions)</li></ul><p>Before submitting a new food, make sure you read over our <a href=#contributing>contribution guidelines</a>.</p><h2 id=create-the-fish-food>Create the fish food</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish update <span style=color:#75715e># make sure we&#39;ve got a fresh checkout of master</span>
+</span></span><span style=display:flex><span>vim <span style=color:#66d9ef>$(</span>gofish create foo<span style=color:#66d9ef>)</span>
+</span></span></code></pre></div><h2 id=test-the-fish-food>Test the fish food</h2><p>&mldr;By installing it!</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gofish install --log-level <span style=color:#ae81ff>9001</span> foo
+</span></span></code></pre></div><h2 id=manuals>Manuals</h2><p>GoFish expects to find manual pages in <code>/usr/local/share/man/</code>, not in <code>/usr/local/man/</code>.</p><h2 id=a-quick-word-on-naming>A quick word on naming</h2><p>Name the food like the project markets the product. For example, use <code>pkg-config</code> over <code>pkgconfig</code>,
+and <code>sdl_mixer</code> over <code>sdl-mixer</code> or <code>sdlmixer</code>.</p><h2 id=commit>Commit</h2><p>Everything is built on git, so contribution is easy:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>eval <span style=color:#66d9ef>$(</span>gofish tank<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>cd $GOFISH_DEFAULT_RIG
+</span></span><span style=display:flex><span><span style=color:#75715e># Create a new git branch for your food so your pull request is easy to</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># modify if any changes come up during review.</span>
+</span></span><span style=display:flex><span>git checkout -b &lt;some-descriptive-name&gt;
+</span></span><span style=display:flex><span>git add Food/foo.lua
+</span></span><span style=display:flex><span>git commit
+</span></span></code></pre></div><h2 id=fork>Fork</h2><p>Now you just need to push your commit to GitHub.</p><p>If you haven’t forked GoFish yet, go to the fish-food repository and hit the Fork button.</p><p>If you have already forked GoFish on GitHub, then you can manually push (just make sure you have been pulling from the tinned-fish/fish-food master):</p><p>git push <a href=https://github.com/myname/fish-food/>https://github.com/myname/fish-food/</a> </p><p>Now, open a pull request for your changes.</p><ul>
 <li>One formula per commit; one commit per formula</li><li>Keep merge commits out of the pull request</li></ul></div></section><section class=page id=hacking>
 <h1>
 <a href=#hacking>Hacking up GoFish 🍣</a>
@@ -167,30 +167,30 @@ git commit
 <p>This guide is for developers who want to improve Fish. These instructions will help you set up a
 development environment for working on the GoFish source code.</p><h2 id=prerequisites>Prerequisites</h2><p>To compile and test GoFish, you will need:</p><ul>
 <li><a href=https://git-scm.com/>git</a></li><li><a href=https://golang.org/>Go</a> 1.10 or later</li></ul><p>In most cases, install each prerequisite according to its instructions.</p><h2 id=fork-the-repository>Fork the Repository</h2><p>Begin at Github by forking GoFish, then clone your fork locally. Since GoFish is a Go package, it
-should be located at $GOPATH/src/github.com/fishworks/gofish.</p><pre tabindex=0><code>$ mkdir -p $GOPATH/src/github.com/fishworks
-$ cd $GOPATH/src/github.com/fishworks
-$ git clone git@github.com:&lt;username&gt;/gofish.git
-$ cd gofish
-</code></pre><p>Add the conventional <a href=https://help.github.com/articles/fork-a-repo/>upstream</a> git remote in order
-to fetch changes from GoFish&rsquo;s main master branch and to create pull requests:</p><pre tabindex=0><code>$ git remote add upstream https://github.com/fishworks/gofish.git
-</code></pre><h2 id=make-your-changes>Make your Changes</h2><p>With the prerequisites installed and your fork of GoFish cloned, you can make changes to local GoFish
-source code.</p><p>Run <code>make</code> to build GoFish:</p><pre tabindex=0><code>$ make bootstrap
-$ make
-</code></pre><h2 id=test-your-changes>Test your Changes</h2><p>GoFish includes a suite of tests:</p><ul>
+should be located at $GOPATH/src/github.com/fishworks/gofish.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ mkdir -p $GOPATH/src/github.com/fishworks
+</span></span><span style=display:flex><span>$ cd $GOPATH/src/github.com/fishworks
+</span></span><span style=display:flex><span>$ git clone git@github.com:&lt;username&gt;/gofish.git
+</span></span><span style=display:flex><span>$ cd gofish
+</span></span></code></pre></div><p>Add the conventional <a href=https://help.github.com/articles/fork-a-repo/>upstream</a> git remote in order
+to fetch changes from GoFish&rsquo;s main master branch and to create pull requests:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git remote add upstream https://github.com/fishworks/gofish.git
+</span></span></code></pre></div><h2 id=make-your-changes>Make your Changes</h2><p>With the prerequisites installed and your fork of GoFish cloned, you can make changes to local GoFish
+source code.</p><p>Run <code>make</code> to build GoFish:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ make bootstrap
+</span></span><span style=display:flex><span>$ make
+</span></span></code></pre></div><h2 id=test-your-changes>Test your Changes</h2><p>GoFish includes a suite of tests:</p><ul>
 <li><code>make test-lint</code>: runs linter/style checks</li><li><code>make test-unit</code>: runs basic unit tests</li><li><code>make test</code>: runs all of the above</li></ul></div></section><section class=page id=contributing>
 <h1>
 <a href=#contributing>Contributing to GoFish</a>
 </h1><div class=content>
-<p>GoFish accepts contributions via GitHub pull requests. This document outlines the process to help get your contribution accepted.</p><h2 id=reporting-a-security-issue>Reporting a Security Issue</h2><p>Most of the time, when you find a bug in GoFish, it should be reported using <a href=https://github.com/fishworks/gofish/issues>GitHub issues</a>.
-However, if you are reporting a <em>security vulnerability</em>, please email a report to <a href=mailto:matt.fisher+security-issues@fishworks.io>Matt Fisher</a>
+<p>GoFish accepts contributions via GitHub pull requests. This document outlines the process to help get your contribution accepted.</p><h2 id=reporting-a-security-issue>Reporting a Security Issue</h2><p>Most of the time, when you find a bug in GoFish, it should be reported using <a href=https://github.com/tinned-fish/gofish/issues>GitHub issues</a>.
+However, if you are reporting a <em>security vulnerability</em>, please email a report to <a href=mailto:fish@gofish.dev>Fish</a>
 directly. This will give myself a chance to try to fix the issue before it is exploited in the wild.</p><h2 id=support-channels>Support Channels</h2><p>Whether you are a user or contributor, official support channels include:</p><ul>
-<li>GitHub <a href=https://github.com/fishworks/gofish/issues>issues</a></li><li>IRC - tbd at a later date</li></ul><p>Before opening a new issue or submitting a new pull request, it&rsquo;s helpful to search the project - it&rsquo;s likely that another user has already reported the issue you&rsquo;re facing, or it&rsquo;s a known issue that we&rsquo;re already aware of.</p><h2 id=milestones>Milestones</h2><p>We use milestones to track progress of releases. A milestone (and hence release) is considered done
+<li>GitHub <a href=https://github.com/tinned-fish/gofish/issues>issues</a></li><li>IRC - tbd at a later date</li></ul><p>Before opening a new issue or submitting a new pull request, it&rsquo;s helpful to search the project - it&rsquo;s likely that another user has already reported the issue you&rsquo;re facing, or it&rsquo;s a known issue that we&rsquo;re already aware of.</p><h2 id=milestones>Milestones</h2><p>We use milestones to track progress of releases. A milestone (and hence release) is considered done
 when all outstanding issues/PRs have been closed or moved to another milestone.</p><h2 id=semver>Semver</h2><p>GoFish maintains a strong commitment to backward compatibility. All of our changes to protocols and
 formats are backward compatible from GoFish 1.0 until GoFish 2.0. No features, flags, or commands are
 removed or substantially modified (other than bug fixes).</p><p>We also try very hard to not change publicly accessible Go library definitions inside of the <code>pkg/</code>
 directory of our source code, but it is not guaranteed to be backwards compatible as we move the
 project forward.</p><p>If there&rsquo;s some package you rely on inside of GoFish that would be useful to split out and maintain
-separately, <a href=https://github.com/fishworks/gofish/issues/new>open an issue to discuss it!</a></p><p>For a quick summary of our backward compatibility guidelines for releases between 1.0 and 2.0:</p><ul>
+separately, <a href=https://github.com/tinned-fish/gofish/issues/new>open an issue to discuss it!</a></p><p>For a quick summary of our backward compatibility guidelines for releases between 1.0 and 2.0:</p><ul>
 <li>Command line commands, flags, and arguments MUST be backward compatible</li><li>Directory formats within /usr/local/Fish MUST be backward compatible</li><li>Any fish food that worked on a previous version of GoFish MUST work on a new version of GoFish, barring the cases where
 <ul>
 <li>it is out of our control, e.g. the Operating System itself changed, and</li><li>the fish food worked because it exploited a bug</li></ul></li></ul><h2 id=issues>Issues</h2><p>Issues are used as the primary method for tracking anything to do with the GoFish project.</p><h3 id=issue-types>Issue Types</h3><p>There are 4 types of issues (each with their own corresponding <a href=#labels>label</a>):</p><h4 id=questionsupport>Question/Support</h4><p>These are support or functionality inquiries that we want to have a record of for future reference.
@@ -297,7 +297,7 @@ representing a project or community include using an official project e-mail
 address, posting via an official social media account, or acting as an appointed
 representative at an online or offline event. Representation of a project may be
 further defined and clarified by project maintainers.</p><h2 id=enforcement>Enforcement</h2><p>Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by <a href=mailto:matt.fisher+code-of-conduct@fishworks.io>contacting the project team</a>.
+reported by <a href=mailto:fish@gofish.dev>contacting the project team</a>.
 All complaints will be reviewed and investigated and will result in a response
 that is deemed necessary and appropriate to the circumstances. The project team
 is obligated to maintain confidentiality with regard to the reporter of an

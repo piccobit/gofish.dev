@@ -128,11 +128,11 @@ right to provide such a system for the initial release.</p><p>However, certain f
 <a href=https://bintray.com/homebrew/bottles>https://bintray.com/homebrew/bottles</a>. GoFish can use these pre-compiled bottles to get <em>some</em>
 compatibility with Homebrew.</p><h2 id=i-have-packages-i-installed-with-homebrew-however-i-want-to-use-gofish-instead-how>I have packages I installed with Homebrew, however I want to use GoFish instead. How?</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>brew unlink foo
 </span></span><span style=display:flex><span>gofish install foo
-</span></span></code></pre></div><h2 id=how-can-i-add-something-to-the-faq>How can I add something to the FAQ?</h2><p>Something missing? Feel like <a href=https://github.com/tinned-fish/gofi.sh>making a contribution?</a></p></div></section><section class=page id=troubleshooting>
+</span></span></code></pre></div><h2 id=how-can-i-add-something-to-the-faq>How can I add something to the FAQ?</h2><p>Something missing? Feel like <a href=https://github.com/tinned-fish/gofish.dev>making a contribution?</a></p></div></section><section class=page id=troubleshooting>
 <h1>
 <a href=#troubleshooting>Troubleshooting</a>
 </h1><div class=content>
-<p>If you feel something&rsquo;s missing from the troubleshooting guide, it&rsquo;s a great opportunity to <a href=https://github.com/fishworks/gofi.sh>make a contribution</a>!</p><p>Nothing has been added to the troubleshooting guide yet. Feel like <a href=https://github.com/fishworks/gofi.sh>making a contribution?</a></p></div></section><section class=page id=cookbook>
+<p>If you feel something&rsquo;s missing from the troubleshooting guide, it&rsquo;s a great opportunity to <a href=https://github.com/tinned-fish/gofish.dev>make a contribution</a>!</p><p>Nothing has been added to the troubleshooting guide yet. Feel like <a href=https://github.com/tinned-fish/gofish.dev>making a contribution?</a></p></div></section><section class=page id=cookbook>
 <h1>
 <a href=#cookbook>Fish Food Cookbook</a>
 </h1><div class=content>
@@ -167,12 +167,12 @@ and <code>sdl_mixer</code> over <code>sdl-mixer</code> or <code>sdlmixer</code>.
 <p>This guide is for developers who want to improve Fish. These instructions will help you set up a
 development environment for working on the GoFish source code.</p><h2 id=prerequisites>Prerequisites</h2><p>To compile and test GoFish, you will need:</p><ul>
 <li><a href=https://git-scm.com/>git</a></li><li><a href=https://golang.org/>Go</a> 1.10 or later</li></ul><p>In most cases, install each prerequisite according to its instructions.</p><h2 id=fork-the-repository>Fork the Repository</h2><p>Begin at Github by forking GoFish, then clone your fork locally. Since GoFish is a Go package, it
-should be located at $GOPATH/src/github.com/fishworks/gofish.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ mkdir -p $GOPATH/src/github.com/fishworks
-</span></span><span style=display:flex><span>$ cd $GOPATH/src/github.com/fishworks
+should be located at $GOPATH/src/github.com/tinned-fish/gofish.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ mkdir -p $GOPATH/src/github.com/tinned-fish
+</span></span><span style=display:flex><span>$ cd $GOPATH/src/github.com/tinned-fish
 </span></span><span style=display:flex><span>$ git clone git@github.com:&lt;username&gt;/gofish.git
 </span></span><span style=display:flex><span>$ cd gofish
 </span></span></code></pre></div><p>Add the conventional <a href=https://help.github.com/articles/fork-a-repo/>upstream</a> git remote in order
-to fetch changes from GoFish&rsquo;s main master branch and to create pull requests:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git remote add upstream https://github.com/fishworks/gofish.git
+to fetch changes from GoFish&rsquo;s main master branch and to create pull requests:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git remote add upstream https://github.com/tinned-fish/gofish.git
 </span></span></code></pre></div><h2 id=make-your-changes>Make your Changes</h2><p>With the prerequisites installed and your fork of GoFish cloned, you can make changes to local GoFish
 source code.</p><p>Run <code>make</code> to build GoFish:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ make bootstrap
 </span></span><span style=display:flex><span>$ make

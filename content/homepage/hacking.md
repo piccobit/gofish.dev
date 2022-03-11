@@ -22,7 +22,7 @@ In most cases, install each prerequisite according to its instructions.
 Begin at Github by forking GoFish, then clone your fork locally. Since GoFish is a Go package, it
 should be located at $GOPATH/src/github.com/fishworks/gofish.
 
-```
+```bash
 $ mkdir -p $GOPATH/src/github.com/fishworks
 $ cd $GOPATH/src/github.com/fishworks
 $ git clone git@github.com:<username>/gofish.git
@@ -32,7 +32,7 @@ $ cd gofish
 Add the conventional [upstream](https://help.github.com/articles/fork-a-repo/) git remote in order
 to fetch changes from GoFish's main master branch and to create pull requests:
 
-```
+```bash
 $ git remote add upstream https://github.com/fishworks/gofish.git
 ```
 
@@ -43,7 +43,7 @@ source code.
 
 Run `make` to build GoFish:
 
-```
+```bash
 $ make bootstrap
 $ make
 ```

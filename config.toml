@@ -23,10 +23,10 @@ theme = "kraiklyn"
 
 [[menu.shortcuts]]
 name = "GoFish on Github"
-url = "https://github.com/piccobit/gofish"
+url = "https://github.com/tinned-fish/gofish"
 weight = 10
 
 [[menu.shortcuts]]
 name = "gofish.dev on Github"
-url = "https://github.com/piccobit/gofish.dev"
+url = "https://github.com/tinned-fish/gofish.dev"
 weight = 20

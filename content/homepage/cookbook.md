@@ -11,11 +11,11 @@ cannot provide on their own.
 
 ## GoFish terminology
 
-| Term    | Description                           | Example                                             |
-|---------|---------------------------------------|-----------------------------------------------------|
-| Food    | The package definition                | /usr/local/Fish/Rigs/github.com/fishworks/fish-food |
-| Rig     | A git repository containing fish food | /usr/local/Fish/Rigs/github.com/fishworks/fish-food |
-| Barrel  | All fish food are installed here      | /usr/local/Fish/Barrel                              |
+| Term    | Description                           | Example                                               |
+|---------|---------------------------------------|-------------------------------------------------------|
+| Food    | The package definition                | /usr/local/Fish/Rigs/github.com/tinned-fish/fish-food |
+| Rig     | A git repository containing fish food | /usr/local/Fish/Rigs/github.com/tinned-fish/fish-food |
+| Barrel  | All fish food are installed here      | /usr/local/Fish/Barrel                                |
 
 ## An introduction
 
@@ -25,7 +25,7 @@ GoFish installs to the Barrel and then symlinks some of the installation into /u
 programs can see what’s going on. We suggest you use `find` on a few of the food in your Barrel to
 see how it is all arranged.
 
-Packages are installed according to their fish food, which are written in Lua and live in `/usr/local/Fish/Rigs/github.com/fishworks/fish-food`.
+Packages are installed according to their fish food, which are written in Lua and live in `/usr/local/Fish/Rigs/github.com/tinned-fish/fish-food`.
 
 ## Basic instructions
 
@@ -42,7 +42,7 @@ Before submitting a new food, make sure you read over our [contribution guidelin
 
 ## Create the fish food
 
-```
+```bash
 gofish update # make sure we've got a fresh checkout of master
 vim $(gofish create foo)
 ```
@@ -51,7 +51,7 @@ vim $(gofish create foo)
 
 ...By installing it!
 
-```
+```bash
 gofish install --log-level 9001 foo
 ```
 
@@ -68,7 +68,7 @@ and `sdl_mixer` over `sdl-mixer` or `sdlmixer`.
 
 Everything is built on git, so contribution is easy:
 
-```
+```bash
 eval $(gofish tank)
 cd $GOFISH_DEFAULT_RIG
 # Create a new git branch for your food so your pull request is easy to
@@ -84,7 +84,7 @@ Now you just need to push your commit to GitHub.
 
 If you haven’t forked GoFish yet, go to the fish-food repository and hit the Fork button.
 
-If you have already forked GoFish on GitHub, then you can manually push (just make sure you have been pulling from the fishworks/fish-food master):
+If you have already forked GoFish on GitHub, then you can manually push (just make sure you have been pulling from the tinned-fish/fish-food master):
 
 git push https://github.com/myname/fish-food/ <what-you-called-your-branch>
 

@@ -9,15 +9,15 @@ GoFish accepts contributions via GitHub pull requests. This document outlines th
 
 ## Reporting a Security Issue
 
-Most of the time, when you find a bug in GoFish, it should be reported using [GitHub issues](https://github.com/fishworks/gofish/issues).
-However, if you are reporting a _security vulnerability_, please email a report to [Matt Fisher](mailto:matt.fisher+security-issues@fishworks.io)
+Most of the time, when you find a bug in GoFish, it should be reported using [GitHub issues](https://github.com/tinned-fish/gofish/issues).
+However, if you are reporting a _security vulnerability_, please email a report to [Fish](mailto:fish@gofish.dev)
 directly. This will give myself a chance to try to fix the issue before it is exploited in the wild.
 
 ## Support Channels
 
 Whether you are a user or contributor, official support channels include:
 
-- GitHub [issues](https://github.com/fishworks/gofish/issues)
+- GitHub [issues](https://github.com/tinned-fish/gofish/issues)
 - IRC - tbd at a later date
 
 Before opening a new issue or submitting a new pull request, it's helpful to search the project - it's likely that another user has already reported the issue you're facing, or it's a known issue that we're already aware of.
@@ -38,7 +38,7 @@ directory of our source code, but it is not guaranteed to be backwards compatibl
 project forward.
 
 If there's some package you rely on inside of GoFish that would be useful to split out and maintain
-separately, [open an issue to discuss it!](https://github.com/fishworks/gofish/issues/new)
+separately, [open an issue to discuss it!](https://github.com/tinned-fish/gofish/issues/new)
 
 For a quick summary of our backward compatibility guidelines for releases between 1.0 and 2.0:
 

@@ -9,7 +9,7 @@ weight: 30
 
 After running one of the [install scripts](#install):
 
-```
+```bash
 gofish init
 ```
 
@@ -17,31 +17,31 @@ gofish init
 
 First update the rigs:
 
-```
+```bash
 gofish update
 ```
 
 You can now find out what is outdated with:
 
-```
+```bash
 gofish rotten
 ```
 
 Upgrade everything with:
 
-```
+```bash
 gofish upgrade
 ```
 
 Or upgrade a particular fish food with:
 
-```
+```bash
 gofish upgrade <food>
 ```
 
 For example, to upgrade GoFish:
 
-```
+```bash
 gofish upgrade gofish
 ```
 
@@ -50,19 +50,19 @@ gofish upgrade gofish
 By default, GoFish does not uninstall old versions of fish food, so over time you will accumulate old
 versions. To remove them, simply use:
 
-```
+```bash
 gofish cleanup <food>
 ```
 
 or clean up everything at once:
 
-```
+```bash
 gofish cleanup
 ```
 
 or to see what would be cleaned up:
 
-```
+```bash
 gofish cleanup -n
 ```
 
@@ -84,11 +84,11 @@ compatibility with Homebrew.
 
 ## I have packages I installed with Homebrew, however I want to use GoFish instead. How?
 
-```
+```bash
 brew unlink foo
 gofish install foo
 ```
 
 ## How can I add something to the FAQ?
 
-Something missing? Feel like [making a contribution?](https://github.com/fishworks/gofi.sh)
+Something missing? Feel like [making a contribution?](https://github.com/tinned-fish/gofi.sh)

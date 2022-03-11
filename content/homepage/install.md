@@ -1,6 +1,6 @@
 ---
 title: "Install"
-date: 2018-04-06
+date: 2022-03-11
 anchor: "install"
 weight: 12
 ---

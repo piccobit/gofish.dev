@@ -1,6 +1,6 @@
 ---
 title: "FAQ"
-date: 2018-04-07
+date: 2022-03-11
 anchor: "faq"
 weight: 30
 ---
@@ -91,4 +91,4 @@ gofish install foo
 
 ## How can I add something to the FAQ?
 
-Something missing? Feel like [making a contribution?](https://github.com/tinned-fish/gofi.sh)
+Something missing? Feel like [making a contribution?](https://github.com/tinned-fish/gofish.dev)

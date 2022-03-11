@@ -1,6 +1,6 @@
 ---
 title: "Hacking up GoFish 🍣"
-date: 2018-04-08
+date: 2022-03-11
 anchor: "hacking"
 weight: 41
 ---
@@ -20,11 +20,11 @@ In most cases, install each prerequisite according to its instructions.
 ## Fork the Repository
 
 Begin at Github by forking GoFish, then clone your fork locally. Since GoFish is a Go package, it
-should be located at $GOPATH/src/github.com/fishworks/gofish.
+should be located at $GOPATH/src/github.com/tinned-fish/gofish.
 
 ```bash
-$ mkdir -p $GOPATH/src/github.com/fishworks
-$ cd $GOPATH/src/github.com/fishworks
+$ mkdir -p $GOPATH/src/github.com/tinned-fish
+$ cd $GOPATH/src/github.com/tinned-fish
 $ git clone git@github.com:<username>/gofish.git
 $ cd gofish
 ```
@@ -33,7 +33,7 @@ Add the conventional [upstream](https://help.github.com/articles/fork-a-repo/) g
 to fetch changes from GoFish's main master branch and to create pull requests:
 
 ```bash
-$ git remote add upstream https://github.com/fishworks/gofish.git
+$ git remote add upstream https://github.com/tinned-fish/gofish.git
 ```
 
 ## Make your Changes

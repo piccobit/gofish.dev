@@ -1,6 +1,6 @@
 ---
 title: "Code of Conduct"
-date: 2018-04-08
+date: 2022-03-11
 anchor: "code-of-conduct"
 weight: 50
 ---

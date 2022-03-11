@@ -1,6 +1,6 @@
 ---
 title: "GoFish, the Package Manager 🐠"
-date: 2018-04-06
+date: 2022-03-11
 anchor: "intro"
 weight: 10
 ---

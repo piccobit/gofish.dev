@@ -4,7 +4,7 @@ curl -fsSL https://raw.githubusercontent.com/tinned-fish/gofish/main/scripts/ins
 Set-ExecutionPolicy Bypass -Scope Process -Force iex ((New-Object System.Net.WebClient).DownloadString(&amp;#39;https://raw.githubusercontent.com/tinned-fish/gofish/main/scripts/install.ps1&amp;#39;)) After running one of the install scripts:
 gofish init Once you have GoFish up and running, you can upgrade at any time using
 gofish install gofish Then:
-gofish upgrade gofish Please inspect the install scripts prior to running them to ensure your OS&amp;rsquo;s safety. I trust my own code, but you should verify the security and contents of any script from the internet you are not familiar with.</description></item><item><title>FAQ</title><link>https://gofish.dev/homepage/faq/</link><pubDate>Fri, 11 Mar 2022 00:00:00 +0000</pubDate><guid>https://gofish.dev/homepage/faq/</guid><description>How do I get started? After running one of the install scripts:
+gofish upgrade gofish Please inspect the install scripts prior to running them to ensure your OS&amp;rsquo;s safety. You should verify the security and contents of any script from the internet you are not familiar with.</description></item><item><title>FAQ</title><link>https://gofish.dev/homepage/faq/</link><pubDate>Fri, 11 Mar 2022 00:00:00 +0000</pubDate><guid>https://gofish.dev/homepage/faq/</guid><description>How do I get started? After running one of the install scripts:
 gofish init How do I update my local packages? First update the rigs:
 gofish update You can now find out what is outdated with:
 gofish rotten Upgrade everything with:

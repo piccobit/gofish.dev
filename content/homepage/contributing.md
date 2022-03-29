@@ -10,7 +10,7 @@ GoFish accepts contributions via GitHub pull requests. This document outlines th
 ## Reporting a Security Issue
 
 Most of the time, when you find a bug in GoFish, it should be reported using [GitHub issues](https://github.com/tinned-fish/gofish/issues).
-However, if you are reporting a _security vulnerability_, please email a report to [Fish](mailto:fish@gofish.dev)
+However, if you are reporting a _security vulnerability_, please email a report to [GoFish Security](mailto:security@gofish.dev)
 directly. This will give myself a chance to try to fix the issue before it is exploited in the wild.
 
 ## Support Channels
